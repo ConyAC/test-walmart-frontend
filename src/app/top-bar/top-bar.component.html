@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark bg-primary">
+  <a [routerLink]="['/']">
+    <img alt="logo walmart" src="../assets/logo.svg" width="150" height="80">
+  </a>
+  <form (keyup.enter)="onSubmit(search)" class="form-inline my-2 my-lg-0">
+
+    <input class="form-control mr-sm-2"  class="form-control" type="search" name="search" ngModel #search="ngModel"
+      placeholder="¿Qué estás buscando?" aria-label="Search" >
+      
+  </form>
+</nav>
+<div class="card my-5" >
+
+    <div class="card-deck">
+        <div *ngFor="let product of results">
+          <div class="card" style="width: 14rem;">
+            <img class="card-img-top" src="http://{{product.image}}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text"><b>{{product.brand}}</b> {{product.description}} </p>
+              <h5 class="card-title">{{product.price/1000 | currency:'USD':true:'2.3-3'}}</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</div>
