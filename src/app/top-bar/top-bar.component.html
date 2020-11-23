@@ -16,11 +16,13 @@
           <div class="card" style="width: 14rem;">
             <img class="card-img-top" src="http://{{product.image}}" alt="Card image cap">
             <div class="card-body">
-              <p class="card-text"><b>{{product.brand}}</b> {{product.description}} </p>
+              <p class="card-text"><b>{{product.brand}}</b> {{product.description}}</p>
               <h5 class="card-title">{{product.price/1000 | currency:'USD':true:'2.3-3'}}</h5>
+              <ng-container *ngIf="product.specialProduct">
+              <span class="badge badge-danger">50%</span>
+              </ng-container>
             </div>
           </div>
         </div>
     </div>
-
 </div>
